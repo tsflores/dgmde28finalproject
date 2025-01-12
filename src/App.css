@@ -184,7 +184,7 @@ input[type ="password"]{
   padding-top: 2rem;
   padding-left: 4rem;
   padding-right: 4rem;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .poster-container{
