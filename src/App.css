@@ -306,7 +306,7 @@ h4{
   display: flex;
 }
 
-@media screen and (max-width: 1200px) {
+/* @media screen and (max-width: 1200px) {
 
   .watchlist-text-container{
     display: inline;
@@ -314,3 +314,4 @@ h4{
   }
 
 }
+ */
