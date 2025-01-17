@@ -308,18 +308,9 @@ h4{
 
 @media screen and (max-width: 1200px) {
 
-/*   .poster-container{
-    height: 250px;
-  } */
-
-  .show-details-container{
+  .watchlist-text-container{
     background-color: white;
   }
-  
-/*   .watchlist-text-container{
-    display: inline;
-    overflow: auto;
-  } */
 
 }
 
