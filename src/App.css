@@ -307,12 +307,6 @@ h4{
 }
 
 @media screen and (max-width: 1200px) {
-  
-  .poster-container{
-   
-    width: auto;
-    
-  }
 
   .watchlist-text-container{
     display: inline;
