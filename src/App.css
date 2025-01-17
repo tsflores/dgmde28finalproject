@@ -308,7 +308,11 @@ h4{
 
 @media screen and (max-width: 1200px) {
 
-  .watchlist-text-container{
+/*   .watchlist-text-container{
+    background-color: white;
+  } */
+
+    .poster-container{
     background-color: white;
   }
 
