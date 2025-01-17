@@ -308,12 +308,12 @@ h4{
 
 @media screen and (max-width: 1200px) {
 
-  .poster-container{
+/*   .poster-container{
     height: 250px;
-  }
+  } */
 
   .show-details-container{
-    width: 400px;
+    background-color: white;
   }
   
 /*   .watchlist-text-container{
