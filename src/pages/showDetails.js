@@ -71,8 +71,7 @@ export const ShowDetails = () => {
                     <button type="button"
                         className={(!inList) ? "watchlist-button" : "watchlist-button-disabled"} onClick={appendList}>{(inList || clicked) ? <>&#x2713; Watchlist</> : <>&#43; Watch List</>}
                     </button>
-
-                    <h2>Screen Width: {window.innerWidth} </h2>        
+                            
                     <h2>Rating: {Math.round(info?.vote_average)} <FaStar className="star"/></h2>
                     <ul>
                         {info?.genres?.map(genre => (
