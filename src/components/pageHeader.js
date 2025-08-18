@@ -20,8 +20,10 @@ export const Header = (props) => {
 
 
   return (
-    <div className="header-container">
-        <img className = "header-image" src={poster_URL + randomShow?.backdrop_path} alt={randomShow?.title} />
+    <div className="header-containe=" style={{backgroundImage: randomShow?.backdrop_path ? `url(${poster_URL + randomShow.backdrop_path})` : 'none'}} >
+    // <div className="header-container">
+        
+        // <img className = "header-image" src={poster_URL + randomShow?.backdrop_path} alt={randomShow?.title} />
         <div className = "overlay-text">
           <p className="header-main-text">{props.primaryMsg}</p>
           <p className = "header-sub-text">{props.secondaryMsg}</p>
@@ -30,4 +32,5 @@ export const Header = (props) => {
     </div>
 
   )
+
 }
