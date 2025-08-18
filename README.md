@@ -1,6 +1,6 @@
 Harvard Extension DGMD E-28 Developing Single-Page Web Applications Final Project
 
-URL:https://main--dgmde8trinidad.netlify.app/
+URL:https://main--dgmde28trinidad.netlify.app/
 
 For the final project, I elected to create clone of the TMDB site (https://www.themoviedb.org/).  TMDB has an API (https://developer.themoviedb.org/reference/configuration-details) with information about thousands of movies and TV shows.  To simplify the project and complete it within the timeframe alotted, I focused on a SPA that delivered information about TV shows.
 
