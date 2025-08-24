@@ -21,8 +21,8 @@ export const Home = () => {
       <Category rowID='2' title="ScyFy TV" fetchURL={API_REQUESTS.requestSciFiTV} />
       <Category rowID='3' title="Airing Now TV" fetchURL={API_REQUESTS.requestOnAirTVShows} />
       <Category rowID='4' title="Animation TV" fetchURL={API_REQUESTS.requestAnimationTVShows} />
-      <Category rowID='5' title="Comedy TV" fetchURL={API_REQUESTS.requestComedyTVShows} />
-      <Category rowID='6' title="Drama TV" fetchURL={API_REQUESTS.requestDramaTVShows} />
+      {/* <Category rowID='5' title="Comedy TV" fetchURL={API_REQUESTS.requestComedyTVShows} />
+      <Category rowID='6' title="Drama TV" fetchURL={API_REQUESTS.requestDramaTVShows} /> */}
     </div>
   )
 }
