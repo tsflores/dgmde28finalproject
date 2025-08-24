@@ -11,7 +11,7 @@ export const Header = (props) => {
   //generate API request to TMDB using the randomShow URL.
   useEffect(() => {
     axios
-        .get(API_REQUESTS.requestSciFiTV)
+        .get(API_REQUESTS.requestTrendingTV)
         .then(response => (
             setShows(response.data.results)
         ))

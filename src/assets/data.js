@@ -15,11 +15,9 @@ export const poster_URL = "https://image.tmdb.org/t/p/original";
 
 export const API_REQUESTS = {
     requestTrendingTV: `https://api.themoviedb.org/3/trending/tv/week?page=1&api_key=${API_KEY}`,
-    requestSciFiTV: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=10765`,
-    requestOnAirTVShows: `https://api.themoviedb.org/3/tv/on_the_air?api_key=${API_KEY}&language=en-US&page=1`,
-    requestAnimationTVShows: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=16`,
-    requestComedyTVShows: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=35`,
-    requestDramaTVShows: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=18`
+    // requestSciFiTV: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=10765`,
+    requestMoviesNowPlaying: `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`,
+    requestMoviesComingSoon: `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&with_genres=16`,
 }
 
 
