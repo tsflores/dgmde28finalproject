@@ -14,7 +14,7 @@ export const poster_URL = "https://image.tmdb.org/t/p/original";
 /*set up an array that holds the URLs required for the API call of a specific set of TV shows. The TMDB API provides specific query parameters to extract genres or other categories of shows*/
 
 export const API_REQUESTS = {
-    requestTrendingTV: `https://api.themoviedb.org/3/trending/tv/day?api_key=${API_KEY}`,
+    requestTrendingTV: `https://api.themoviedb.org/3/trending/tv/week?page=1&api_key=${API_KEY}`,
     requestSciFiTV: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=10765`,
     requestOnAirTVShows: `https://api.themoviedb.org/3/tv/on_the_air?api_key=${API_KEY}&language=en-US&page=1`,
     requestAnimationTVShows: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=16`,
