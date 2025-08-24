@@ -3,6 +3,8 @@
 body {
   background: black;
   color:white;
+  max-width: 1500px;
+  margin: auto;
 }
 
 /*Styling elements linked to the navigation on each page */
@@ -109,7 +111,7 @@ h2 {
   height: 400px;
   overflow: hidden;
   position: relative;
-}
+} */
 
 .header-image {
   width: 100%;
@@ -118,7 +120,7 @@ h2 {
   opacity: 0.5;
 }
 
-.overlay-text{
+/* .overlay-text{
   color: white;
   position: absolute;
   left: 40px;
