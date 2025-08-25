@@ -9,6 +9,7 @@ import { FaStar } from "react-icons/fa6"; //https://www.npmjs.com/package/react-
 
 export const SingleList = (props) => {
     const [shows, setShows] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     let media_type = props.mediaFormat;
     const getTVBaseURL = `https://api.themoviedb.org/3/${media_type}/`
@@ -24,11 +25,24 @@ export const SingleList = (props) => {
             .get(getTVURL)
             .then(res => {
                 setShows(res.data)
+                setIsLoading(false);
                 window.scrollTo(0, 0)  //always start at the top
             })
             .then(response => console.log(response))
-            .catch(error => console.log(error))
+            .catch(error => {
+                console.log(error);
+                setIsLoading(false)})
     }, [getTVURL])
+
+    // Don't render if still loading
+    if (isLoading) {
+        return null; // or return a loading spinner if you prefer
+    }
+
+    // Don't render if no backdrop image is available
+    if (!shows?.backdrop_path || shows?.backdrop_path === "" || shows?.backdrop_path === null) {
+        return null;
+    }
 
     return (
         <div className="watchlist-image-container" >

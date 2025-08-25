@@ -76,15 +76,16 @@ function SearchList(props) {
 
     if (resultCount === 0) {
         msg = "No results found. Try adjusting your search terms or switching between TV shows and movies.";
-    } else if (resultCount === 1) {
-        msg = `Found 1 ${props.searchType === 'tv' ? 'TV Show' : 'Movie'}`;
-    } else {
-        msg = `Found ${resultCount} ${props.searchType === 'tv' ? 'TV Shows' : 'Movies'}`;
-    }
+    } 
+    // else if (resultCount === 1) {
+    //     msg = `Found 1 ${props.searchType === 'tv' ? 'TV Show' : 'Movie'}`;
+    // } else {
+    //     msg = `Found ${resultCount} ${props.searchType === 'tv' ? 'TV Shows' : 'Movies'}`;
+    // }
 
     return (
         <div className="search-results-container">
-            <h1 className="search-results-header">Search Results</h1>
+            {/* <h1 className="search-results-header">Search Results</h1> */}
             <h2 className="search-results-message">{msg}</h2>
             {resultCount > 0 && (
                 <div className="search-results-list">
