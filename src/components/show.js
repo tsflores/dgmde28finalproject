@@ -8,7 +8,7 @@ export const Show = ({ show }) => {
         was for a movie or TV show; set-up for possible expansion to use with movies as well. */
 
     return (
-        <Link to={`/showdetails/${show?.id}`} className="link-render">
+        <Link to={(show.media_type ? `/showdetails/${show?.id}` : `/moviedetails/${show?.id}`)} className="link-render">
             <li className="thumbnail" show={show}>
                 <img src={backdrop_URL + show?.backdrop_path}
                     alt={show?.name} />

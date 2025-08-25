@@ -226,6 +226,7 @@ input[type ="password"]{
 .poster-container{
   display:flex;
   height: 500px;
+  margin: auto;
 }
 
 #details-name{

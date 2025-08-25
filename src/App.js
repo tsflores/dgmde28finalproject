@@ -20,6 +20,7 @@ function MyApp() {
 				<Route path ="/search" element={<Search />} />
 				<Route path ="/login" element={<Login />} />
 				<Route path ="/showdetails/:id" element={<ShowDetails />} />
+				<Route path ="/moviedetails/:id" element={<ShowDetails />} />
 				<Route path ="*" element={<My404 />} />
 			</Routes>
 		</div>
