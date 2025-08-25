@@ -10,9 +10,12 @@ import { FaStar } from "react-icons/fa6"; //https://www.npmjs.com/package/react-
 export const SingleList = (props) => {
     const [shows, setShows] = useState([]);
 
-    const getTVBaseURL = "https://api.themoviedb.org/3/tv/"
+    let media_type = props.mediaFormat;
+    const getTVBaseURL = `https://api.themoviedb.org/3/${media_type}/`
     const getTVEndURL = `?api_key=${API_KEY}&language=en-US`
-    var tv_ID = props.tvID;
+    let tv_ID = props.tvID;
+
+    console.log(media_type);
 
     const getTVURL = getTVBaseURL+tv_ID+getTVEndURL;
 
@@ -30,14 +33,13 @@ export const SingleList = (props) => {
     return (
         <div className="watchlist-image-container" >
             <div className="list-container">
-                <Link to={`/showdetails/${shows?.id}`} className="link-render">
-                    <img src={backdrop_URL_Small + shows?.backdrop_path} alt={shows?.title} />
+                <Link to={(media_type === 'tv' ? `/showdetails/${shows?.id}` : `/moviedetails/${shows?.id}`)} className="link-render">
+                    <img src={backdrop_URL_Small + shows?.backdrop_path} alt={shows?.title || shows?.name} />
                 </Link>
                 <div className="watchlist-text-container">
-                    <h1>{shows?.name}</h1>
+                    <h1>{shows?.name || shows?.title}</h1>
                     <h2>Rating: {Math.round(shows?.vote_average)} <FaStar className="star"/></h2>
-                    <p>Seasons: {shows?.number_of_seasons}</p>
-                    <p>No. of Episodes: {shows?.number_of_episodes}</p>
+                    <p>Media Format: {media_type === 'tv' ? "Television" : "Film"}</p>
                     {/* function call to truncateTitle to limit characters displayed */}
                     <p>{truncateTitle(shows?.overview,200)}</p>  
                 </div>

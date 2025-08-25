@@ -56,7 +56,9 @@ export const ShowDetails = () => {
   // add a show to the watch list
   const appendList = () => {
     if (!tvWatchList.includes(id)) {
-      tvWatchList.push(id);
+      // tvWatchList.push(id);
+      tvWatchList.push({id: id, mediaType: mediaType});
+      console.log(tvWatchList);
       setClicked(true);
       checkList(true);
     }

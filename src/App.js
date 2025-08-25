@@ -5,7 +5,7 @@ import { Search } from "./pages/search.js";
 import { Nav } from "./components/navigation.js";
 import { TVWatchList } from "./pages/tvwatchlist.js";
 import { ShowDetails } from "./pages/showDetails.js";
-import { Login } from "./pages/login.js";
+// import { Login } from "./pages/login.js";
 import { My404 } from "./pages/error.js";
 import "./App.css";
 
@@ -18,7 +18,7 @@ function MyApp() {
 				<Route path="/" element={<Home />} />
 				<Route path="/watchlist" element={<TVWatchList />} />
 				<Route path ="/search" element={<Search />} />
-				<Route path ="/login" element={<Login />} />
+				{/* <Route path ="/login" element={<Login />} /> */}
 				<Route path ="/showdetails/:id" element={<ShowDetails />} />
 				<Route path ="/moviedetails/:id" element={<ShowDetails />} />
 				<Route path ="*" element={<My404 />} />

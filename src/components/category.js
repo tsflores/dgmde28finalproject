@@ -25,8 +25,6 @@ export const Category = (props) => {
 
       let filteredShows = allShows;
 
-      console.log(filteredShows[0].media_type);
-
       //filtering for US based shows only if flag is set to true
       if (filterUS) {
         filteredShows = allShows.filter((show) => show.origin_country && show.origin_country.includes("US")

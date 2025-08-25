@@ -10,7 +10,7 @@ export function Nav() {
 			<Link to="/"><img id="logo" src={logo} alt="The Movie Database (TMDB)" /></Link>
 			<Link to="/watchlist">Watchlist</Link>
 			<Link to="/search">Search</Link>
-			<Link to="/login">Login</Link>
+			{/* <Link to="/login">Login</Link> */}
 		</nav>
 	);
 }
