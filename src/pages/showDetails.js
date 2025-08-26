@@ -7,6 +7,7 @@ import {
   API_KEY,
   truncateTitle,
   tvWatchList,
+  saveWatchListToStorage,
 } from "../assets/data.js";
 import { FaStar } from "react-icons/fa6";
 
@@ -59,24 +60,22 @@ export const ShowDetails = () => {
 
   // add a show to the watch list or remove it if already there
   const appendList = () => {
-    console.log("Exists: ", exists);
+   
     if (!exists) {
       tvWatchList.push({ id: id, mediaType: mediaType });
-      console.log(tvWatchList);
+      saveWatchListToStorage(tvWatchList);
       setClicked(true);
       checkList(true);
     } else {
       const index = tvWatchList.findIndex((item) => item.id === id);
       if (index !== -1) {
         tvWatchList.splice(index, 1); // Remove 1 item at found index
+        saveWatchListToStorage(tvWatchList);
         setClicked(false);
         checkList(false);
       }
     }
   };
-
-  console.log("Inlist:", inList);
-  console.log(tvWatchList);
 
   const getTitle = () => {
     return info?.title || info?.name; // Movies use 'title', TV shows use 'name'

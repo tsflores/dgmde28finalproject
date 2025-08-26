@@ -7,6 +7,10 @@ body {
   margin: auto;
 }
 
+h1{
+  font-size: clamp(16px, 2vw, 32px);
+}
+
 /*Styling elements linked to the navigation on each page */
 
 .main-nav{
@@ -236,7 +240,7 @@ input[type ="password"]{
 }
 
 #details-name{
-  font-size: 48px;
+  font-size: clamp(32px, 2vw, 48px);
   padding-left: 1rem;
   margin: 0;
 }
@@ -491,10 +495,6 @@ h4{
 }
 
 @media screen and (max-width: 1200px) {
-
-/*   .watchlist-text-container{
-    background-color: white;
-  } */
 
     .poster-container{
       height: 275px;

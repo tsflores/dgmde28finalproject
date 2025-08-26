@@ -15,14 +15,35 @@ export const poster_URL = "https://image.tmdb.org/t/p/original";
 
 export const API_REQUESTS = {
     requestTrendingTV: `https://api.themoviedb.org/3/trending/tv/week?page=1&api_key=${API_KEY}`,
-    // requestSciFiTV: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=10765`,
     requestMoviesNowPlaying: `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`,
     requestMoviesComingSoon: `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&with_genres=16`,
 }
 
+// localStorage helper functions
+const WATCHLIST_KEY = 'tvWatchList';
+
+export const loadWatchListFromStorage = () => {
+    try {
+        const stored = localStorage.getItem(WATCHLIST_KEY);
+        return stored ? JSON.parse(stored) : [];
+    } catch (error) {
+        console.error('Error loading watchlist from localStorage:', error);
+        return [];
+    }
+};
+
+export const saveWatchListToStorage = (watchlist) => {
+    try {
+        localStorage.setItem(WATCHLIST_KEY, JSON.stringify(watchlist));
+    } catch (error) {
+        console.error('Error saving watchlist to localStorage:', error);
+    }
+};
 
 //use the tvWatchList array to store TMDB show IDs that the user wants added to their watch list
-export var tvWatchList = [];
+// export var tvWatchList = [];
+
+export let tvWatchList = loadWatchListFromStorage();
 
 //shortens strings to prevent overflow onto other panes or images
 export const truncateTitle = (str, extractLength) => {

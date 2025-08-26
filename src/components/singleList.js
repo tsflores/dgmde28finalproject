@@ -16,8 +16,6 @@ export const SingleList = (props) => {
     const getTVEndURL = `?api_key=${API_KEY}&language=en-US`
     let tv_ID = props.tvID;
 
-    console.log(media_type);
-
     const getTVURL = getTVBaseURL+tv_ID+getTVEndURL;
 
     useEffect(() => {
