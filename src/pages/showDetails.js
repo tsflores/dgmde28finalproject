@@ -16,11 +16,15 @@ export const ShowDetails = () => {
   const [recom, setRecom] = useState([]);
   const { id } = useParams(); //captures the TMDB ID to insert into the URL string
   const [clicked, setClicked] = useState(false);
-  const [inList, checkList] = useState(tvWatchList.includes(id));
+  const [inList, checkList] = useState(
+    tvWatchList.some((item) => item.id === id)
+  );
   const location = useLocation();
 
   const isMovie = location.pathname.includes("/moviedetails/");
   const mediaType = isMovie ? "movie" : "tv";
+
+  const exists = tvWatchList.some((item) => item.id === id);
 
   //in order to retrieve specific details of a show, the URL needs to have the TMDB ID embedded in it.
   //TMDB API has a number of URLs that also provide recommendations and cast details based on the show ID
@@ -53,16 +57,26 @@ export const ShowDetails = () => {
       .catch((error) => console.log(error));
   }, [showRecommendationsURL]);
 
-  // add a show to the watch list
+  // add a show to the watch list or remove it if already there
   const appendList = () => {
-    if (!tvWatchList.includes(id)) {
-      // tvWatchList.push(id);
-      tvWatchList.push({id: id, mediaType: mediaType});
+    console.log("Exists: ", exists);
+    if (!exists) {
+      tvWatchList.push({ id: id, mediaType: mediaType });
       console.log(tvWatchList);
       setClicked(true);
       checkList(true);
+    } else {
+      const index = tvWatchList.findIndex((item) => item.id === id);
+      if (index !== -1) {
+        tvWatchList.splice(index, 1); // Remove 1 item at found index
+        setClicked(false);
+        checkList(false);
+      }
     }
   };
+
+  console.log("Inlist:", inList);
+  console.log(tvWatchList);
 
   const getTitle = () => {
     return info?.title || info?.name; // Movies use 'title', TV shows use 'name'
@@ -72,6 +86,10 @@ export const ShowDetails = () => {
   const getRecommendationRoute = (itemId) => {
     return isMovie ? `/moviedetails/${itemId}` : `/showdetails/${itemId}`;
   };
+
+  /* For cast and recommendations, remove any items that do not have an actual image, i.e.
+  the backdrop_path or profile_path is null.  For each of these, I'm using a different approach
+  to illustrate options.  However, the filter approach prior to mapping is preferred. */
 
   return (
     <section>
@@ -100,7 +118,7 @@ export const ShowDetails = () => {
             onClick={appendList}
           >
             {inList || clicked ? (
-              <>&#x2713; Watchlist</>
+              <>&#x2717; Watchlist</>
             ) : (
               <>&#43; Watch List</>
             )}
@@ -150,39 +168,44 @@ export const ShowDetails = () => {
       <div>
         <h1 className="cast-header"> Cast </h1>
         <ul className="cast-container">
-          {cast?.cast?.map((castName) => (
-            <li key={castName?.name}>
-              <img
-                className="cast-images"
-                src={poster_URL + castName?.profile_path}
-                alt={castName?.name}
-              />
-              <h4>{castName?.name}</h4>
-            </li>
-          ))}
+          {cast?.cast?.map(
+            (castName) =>
+              castName?.profile_path && (
+                <li key={castName?.id}>
+                  <img
+                    className="cast-images"
+                    src={poster_URL + castName?.profile_path}
+                    alt={castName?.name}
+                  />
+                  <h4>{castName?.name}</h4>
+                </li>
+              )
+          )}
         </ul>
       </div>
       <h1 className="cast-header"> Recommendations </h1>
       <ul className="cast-container">
-        {recom?.results?.map((recommendedItem) => (
-          <li key={recommendedItem?.id}>
-            <Link
-              to={getRecommendationRoute(recommendedItem?.id)}
-              className="link-render"
-              onClick={() => {
-                setClicked(false);
-                checkList(false);
-              }}
-            >
-              <img
-                className="cast-images"
-                src={poster_URL + recommendedItem?.backdrop_path}
-                alt={recommendedItem?.name || recommendedItem?.title}
-              />
-            </Link>
-            <h4>{recommendedItem?.name || recommendedItem?.title}</h4>
-          </li>
-        ))}
+        {recom?.results
+          ?.filter((recommendedMedia) => recommendedMedia?.backdrop_path)
+          ?.map((recommendedItem) => (
+            <li key={recommendedItem?.id}>
+              <Link
+                to={getRecommendationRoute(recommendedItem?.id)}
+                className="link-render"
+                onClick={() => {
+                  setClicked(false);
+                  checkList(false);
+                }}
+              >
+                <img
+                  className="cast-images"
+                  src={poster_URL + recommendedItem?.backdrop_path}
+                  alt={recommendedItem?.name || recommendedItem?.title}
+                />
+              </Link>
+              <h4>{recommendedItem?.name || recommendedItem?.title}</h4>
+            </li>
+          ))}
       </ul>
     </section>
   );
