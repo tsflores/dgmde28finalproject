@@ -11,7 +11,7 @@ The app is structured as:
     6. Local storage that allows watch list to persist.
 
 ## Live Demo
-[Play Wordle Clone](https://main--dgmde28trinidad.netlify.app/)
+[Launch TMDB Clone](https://main--dgmde28trinidad.netlify.app/)
 
 ## Setup Instructions
 
